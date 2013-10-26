@@ -111,7 +111,7 @@ images
 --------
 job_id      (int, foreign_key)
 image_url   (string)
-    ```
+```
 
 Queueing System
 ---------------
