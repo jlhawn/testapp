@@ -17,13 +17,13 @@ Response:
 {"job_id": "526c17fd332da100a718eeec"}
 ```
 
-You can check the status with a request to /status/<job_id>
+You can check the status with a request to /status/`<job_id>`
 
 ```json
 {"status": "Working", "job_id": "526c17fd332da100a718eeec", "completed": 51, "processing": 12, "waiting": 214, "images_found": 738}
 ```
 
-When the status is "Finished", you can get the results from /result/<job_id>
+When the status is "Finished", you can get the results from /result/`<job_id>`
 See example_results.json for an example of job results.
 
 If you request the result of a job using a browser, the web server will return an html document. View these for an example:
@@ -49,7 +49,7 @@ I went with MongoDB over a RDBMS like Postgres simply for the ease of use given 
 Shortcomings/Possible improvements
 ----------------------------------
 
-I can't guarantee that my scraping method is thorough. If I request too many pages in a short time, a worker can be rate-limited and the worker ends up skipping that url and therefore any images on that page. I'm only gathering images and links from <img> and <a> tags, so there may be several links that I'm missing because they are only plaintext and there may be several images that I'm missing because they are only referenced in CSS or JavaScript.
+I can't guarantee that my scraping method is thorough. If I request too many pages in a short time, a worker can be rate-limited and the worker ends up skipping that url and therefore any images on that page. I'm only gathering images and links from `<img>` and `<a>` tags, so there may be several links that I'm missing because they are only plaintext and there may be several images that I'm missing because they are only referenced in CSS or JavaScript.
 
 Also, you may notice that workers can quickly process hundreds of links, but the last dozen or so links can take a while to process. This is because the PiCloud jobs pop several messages off the queue at once then process them, requiring fewer round trips to the queue service, but this could lead to a situation where one job has popped off the last 10 messages, only processing one, while a dozen other jobs have nothing else to get from the queue.
 
