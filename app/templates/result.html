@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Web Crawl Results for Job {{ job_id }}</title>
+    <style type="text/css">
+        .scraped_image {
+            display: inline;
+            max-width: 150px;
+            max-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Results for Job {{ job_id }}</h2>
+    <p>{{ images|length }} images found.</p>
+    <div>
+        {% for image_url in images %}
+            <img class="scraped_image" src="{{ image_url }}" />
+        {% endfor %}
+    <div>
+
+</body>
+</html>

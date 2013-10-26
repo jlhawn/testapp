@@ -1,0 +1,4 @@
+cloud==2.8.5
+Flask==0.10
+jinja2==2.6
+pymongo==2.6.3
